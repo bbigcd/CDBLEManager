@@ -16,6 +16,8 @@
 		2A225E2A1DC75A3F001BAF46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A225E291DC75A3F001BAF46 /* ViewController.m */; };
 		2A225E2D1DC75A50001BAF46 /* CDCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A225E2C1DC75A50001BAF46 /* CDCentralManager.m */; };
 		2A225E331DC76259001BAF46 /* CDBLEDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A225E321DC76259001BAF46 /* CDBLEDefine.m */; };
+		2AA0B8EF1DC99F3D006FB2C8 /* CDBLECallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0B8EE1DC99F3D006FB2C8 /* CDBLECallBack.m */; };
+		2AA0B8F21DC9BA21006FB2C8 /* CDBLEManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0B8F11DC9BA21006FB2C8 /* CDBLEManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		2A225E2C1DC75A50001BAF46 /* CDCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDCentralManager.m; path = CDBLEManager/CDCentralManager.m; sourceTree = "<group>"; };
 		2A225E311DC76259001BAF46 /* CDBLEDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDBLEDefine.h; sourceTree = "<group>"; };
 		2A225E321DC76259001BAF46 /* CDBLEDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDBLEDefine.m; sourceTree = "<group>"; };
+		2AA0B8ED1DC99F3D006FB2C8 /* CDBLECallBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDBLECallBack.h; sourceTree = "<group>"; };
+		2AA0B8EE1DC99F3D006FB2C8 /* CDBLECallBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDBLECallBack.m; sourceTree = "<group>"; };
+		2AA0B8F01DC9BA21006FB2C8 /* CDBLEManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDBLEManager.h; sourceTree = "<group>"; };
+		2AA0B8F11DC9BA21006FB2C8 /* CDBLEManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDBLEManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,10 @@
 			children = (
 				2A225E311DC76259001BAF46 /* CDBLEDefine.h */,
 				2A225E321DC76259001BAF46 /* CDBLEDefine.m */,
+				2AA0B8ED1DC99F3D006FB2C8 /* CDBLECallBack.h */,
+				2AA0B8EE1DC99F3D006FB2C8 /* CDBLECallBack.m */,
+				2AA0B8F01DC9BA21006FB2C8 /* CDBLEManager.h */,
+				2AA0B8F11DC9BA21006FB2C8 /* CDBLEManager.m */,
 				2A225E2B1DC75A50001BAF46 /* CDCentralManager.h */,
 				2A225E2C1DC75A50001BAF46 /* CDCentralManager.m */,
 			);
@@ -318,10 +328,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A225E2D1DC75A50001BAF46 /* CDCentralManager.m in Sources */,
+				2AA0B8F21DC9BA21006FB2C8 /* CDBLEManager.m in Sources */,
 				2A225E331DC76259001BAF46 /* CDBLEDefine.m in Sources */,
 				2A225DEF1DC75850001BAF46 /* AppDelegate.m in Sources */,
 				2A225E2A1DC75A3F001BAF46 /* ViewController.m in Sources */,
 				2A225DEC1DC75850001BAF46 /* main.m in Sources */,
+				2AA0B8EF1DC99F3D006FB2C8 /* CDBLECallBack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +553,7 @@
 				2A225E161DC75851001BAF46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A225E171DC75851001BAF46 /* Build configuration list for PBXNativeTarget "CDBLEManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +562,7 @@
 				2A225E191DC75851001BAF46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A225E1A1DC75851001BAF46 /* Build configuration list for PBXNativeTarget "CDBLEManagerUITests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +571,7 @@
 				2A225E1C1DC75851001BAF46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

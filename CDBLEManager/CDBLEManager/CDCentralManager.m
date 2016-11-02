@@ -8,26 +8,14 @@
 
 #import "CDCentralManager.h"
 
-
-static NSString *const NotificationAtDidDiscoverPeripheral = @"NotificationAtDidDiscoverPeripheral";
-
 @implementation CDCentralManager
 
-+ (instancetype)shareCDBluetooth{
-    static CDCentralManager *manager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        manager = [[CDCentralManager alloc] init];
-    });
-    return manager;
-}
+#pragma mark --CDCentralManager--
 
-#pragma mark --VPCentralManager--
 - (instancetype)init{
     if (self = [super init]) {
         centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
         //pocket广播包 其他一些属性初始化
-        pocket = [[NSMutableDictionary alloc]init];
         connectedPeripherals = [[NSMutableArray alloc]init];//连接的外围设备
         discoverPeripherals = [[NSMutableArray alloc]init];//发现的外围设备
     }
@@ -95,35 +83,13 @@ static NSString *const NotificationAtDidDiscoverPeripheral = @"NotificationAtDid
 }
 
 
+
 #pragma mark --CBCentralManagerDelegate--
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
-    switch (central.state) {
-        case CBCentralManagerStateUnknown: {
-            NSLog(@"CBCentralManagerStateUnknown");
-            break;
-        }
-        case CBCentralManagerStateResetting: {
-            NSLog(@"CBCentralManagerStateResetting");
-            break;
-        }
-        case CBCentralManagerStateUnsupported: {
-            NSLog(@"CBCentralManagerStateUnsupported");
-            break;
-        }
-        case CBCentralManagerStateUnauthorized: {
-            NSLog(@"CBCentralManagerStateUnauthorized");
-            break;
-        }
-        case CBCentralManagerStatePoweredOff: {
-            NSLog(@"CBCentralManagerStatePoweredOff");
-            break;
-        }
-        case CBCentralManagerStatePoweredOn: {
-            NSLog(@"CBCentralManagerStatePoweredOn");
-            needScanForPeripherals = YES;
-            [self scanPeripherals];
-            break;
-        }
+    [cdbleCallBack blockWithCentralManagerDidUpdateState](central);
+    if (central.state == CBCentralManagerStatePoweredOn) {
+        [self scanPeripherals];
+        NSLog(@"...");
     }
 }
 
@@ -132,15 +98,11 @@ static NSString *const NotificationAtDidDiscoverPeripheral = @"NotificationAtDid
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI{
+    
+    [cdbleCallBack blockWithDiscoverPeripherals](central, peripheral, advertisementData, RSSI);
+    
     // 记录扫描到的所有外围设备
     [self addDiscoverPeripheral:peripheral];
-    [[NSNotificationCenter defaultCenter] postNotificationName:NotificationAtDidDiscoverPeripheral
-                                                        object:@{@"central":central,
-                                                                 @"peripheral":peripheral,
-                                                                 @"advertisementData":advertisementData,
-                                                                 @"RSSI":RSSI}];
-    
-    NSLog(@"%@", peripheral);
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
@@ -215,11 +177,9 @@ static NSString *const NotificationAtDidDiscoverPeripheral = @"NotificationAtDid
 
 
 
-@interface CDCallBack ()
 
 
 
-@end
 
 
 
