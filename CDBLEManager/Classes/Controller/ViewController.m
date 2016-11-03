@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CDBLEManager.h"
+#import "SeviceViewController.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -122,7 +123,16 @@ static NSString *const ID = @"cell";
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.CDBLEManager stopScan];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    SeviceViewController *vc = [[SeviceViewController alloc] init];
+    vc.currenPeripheral = self.peripherals[indexPath.row];
+    vc.CDBLEManager = self.CDBLEManager;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 @end

@@ -46,7 +46,7 @@ CBPeripheralDelegate>
 // 扫描Peripherals
 - (void)scanPeripherals;
 // 停止扫描
-- (void)cancelScan;
+- (void)stopScan;
 
 // 连接Peripherals
 - (void)connectPeripheral:(CBPeripheral *)peripheral;

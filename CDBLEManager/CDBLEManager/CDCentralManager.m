@@ -47,7 +47,7 @@
 }
 
 // 停止扫描
-- (void)cancelScan{
+- (void)stopScan{
     [centralManager stopScan];
 }
 
@@ -89,7 +89,7 @@
     [cdbleCallBack blockWithCentralManagerDidUpdateState](central);
     if (central.state == CBCentralManagerStatePoweredOn) {
         [self scanPeripherals];
-        NSLog(@"...");
+        NSLog(@"设备开始扫描");
     }
 }
 
@@ -106,7 +106,7 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
-    
+    [cdbleCallBack blockWithDidConnectPeripheralBlock](central, peripheral);
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error{

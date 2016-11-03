@@ -16,5 +16,7 @@
 @property (nonatomic, copy) CDCentralManagerDidUpdateStateBlock blockWithCentralManagerDidUpdateState;
 //扫描到外围设备的委托
 @property (nonatomic, copy) CDDiscoverPeripheralsBlock blockWithDiscoverPeripherals;
+//成功连接设备
+@property (nonatomic, copy) CDCentralManagerDidConnectPeripheralBlock blockWithDidConnectPeripheralBlock;
 
 @end

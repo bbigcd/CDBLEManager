@@ -11,14 +11,18 @@
 
 @interface CDBLEManager : NSObject
 
-#pragma mark --工厂方法--
+#pragma mark --工具方法--
 + (instancetype)shareCDBLEManager;
 
+- (void)stopScan;
+
+- (void)connectPeripheral:(CBPeripheral *)peripheral;
 
 #pragma mark --block--
 - (void)cd_setBlockWithCentralManagerDidUpdateState:(void (^)(CBCentralManager *central))block;
 
 - (void)cd_setBlockWithDiscoverToPeripherals:(void (^)(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary*advertisementData, NSNumber *RSSI))block;
 
+- (void)cd_setBlockWithDidConnectPeripheral:(void (^)(CBCentralManager *central,CBPeripheral *peripheral))block;
 
 @end

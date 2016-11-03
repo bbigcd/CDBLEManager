@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
+#import "CDBLEManager.h"
 
 @interface SeviceViewController : UIViewController
 
+@property (nonatomic, strong) CBPeripheral *currenPeripheral;
+@property (nonatomic, strong) CDBLEManager *CDBLEManager;
+
 @end
+

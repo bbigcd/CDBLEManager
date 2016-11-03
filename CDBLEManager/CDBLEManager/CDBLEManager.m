@@ -16,16 +16,7 @@
     CDCentralManager *centralManager;
 }
 
-#pragma mark --工厂方法--
-
-+ (instancetype)shareCDBLEManager{
-    static CDBLEManager *share = nil;
-    static dispatch_once_t oneToken;
-    dispatch_once(&oneToken, ^{
-        share = [[CDBLEManager alloc]init];
-    });
-    return share;
-}
+#pragma mark --工具方法--
 
 - (instancetype)init{
     if (self = [super init]) {
@@ -36,6 +27,23 @@
     return self;
 }
 
++ (instancetype)shareCDBLEManager{
+    static CDBLEManager *share = nil;
+    static dispatch_once_t oneToken;
+    dispatch_once(&oneToken, ^{
+        share = [[CDBLEManager alloc]init];
+    });
+    return share;
+}
+
+- (void)stopScan{
+    [centralManager stopScan];
+}
+
+- (void)connectPeripheral:(CBPeripheral *)peripheral;{
+    [centralManager connectPeripheral:peripheral];
+}
+
 #pragma mark --block--
 
 - (void)cd_setBlockWithCentralManagerDidUpdateState:(void (^)(CBCentralManager *central))block{
@@ -44,6 +52,10 @@
 
 - (void)cd_setBlockWithDiscoverToPeripherals:(void (^)(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary*advertisementData, NSNumber *RSSI))block{
     [cdbleCallBack setBlockWithDiscoverPeripherals:block];
+}
+
+- (void)cd_setBlockWithDidConnectPeripheral:(void (^)(CBCentralManager *central,CBPeripheral *peripheral))block{
+    [cdbleCallBack setBlockWithDidConnectPeripheralBlock:block];
 }
 
 @end
