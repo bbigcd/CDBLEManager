@@ -40,8 +40,12 @@
     [centralManager stopScan];
 }
 
-- (void)connectPeripheral:(CBPeripheral *)peripheral;{
+- (void)connectPeripheral:(CBPeripheral *)peripheral{
     [centralManager connectPeripheral:peripheral];
+}
+
+- (void)cancelAllPeripheralsConnection{
+    [centralManager cancelAllPeripheralsConnection];
 }
 
 #pragma mark --block--
@@ -56,6 +60,10 @@
 
 - (void)cd_setBlockWithDidConnectPeripheral:(void (^)(CBCentralManager *central,CBPeripheral *peripheral))block{
     [cdbleCallBack setBlockWithDidConnectPeripheralBlock:block];
+}
+
+- (void)cd_setBlockWithDidFailConnectPeripheral:(void (^)(CBCentralManager *central, CBPeripheral *peripheral, NSError *error))block{
+    [cdbleCallBack setBlockWithDidFailToConnectPeripheralBlock:block];
 }
 
 @end

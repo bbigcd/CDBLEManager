@@ -40,7 +40,7 @@ static NSString *const ID = @"cell";
     [super viewDidLoad];
     self.sevices = [[NSMutableArray alloc] init];
     [self tableView];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self loadData];
     });
     
@@ -50,9 +50,12 @@ static NSString *const ID = @"cell";
 - (void)CDBLEDelegate{
 //    __weak typeof(self) weakSelf = self;
     [self.CDBLEManager cd_setBlockWithDidConnectPeripheral:^(CBCentralManager *central, CBPeripheral *peripheral){
-        NSLog(@"%@", peripheral);
+        
     }];
     
+    [self.CDBLEManager cd_setBlockWithDidFailConnectPeripheral:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
+        NSLog(@"连接{%@}失败 : %@", peripheral.name, [error localizedDescription]);
+    }];
 }
 
 - (void)loadData{

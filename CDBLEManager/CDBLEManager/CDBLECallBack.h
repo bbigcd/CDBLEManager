@@ -17,6 +17,7 @@
 //扫描到外围设备的委托
 @property (nonatomic, copy) CDDiscoverPeripheralsBlock blockWithDiscoverPeripherals;
 //成功连接设备
-@property (nonatomic, copy) CDCentralManagerDidConnectPeripheralBlock blockWithDidConnectPeripheralBlock;
-
+@property (nonatomic, copy) CDDidConnectPeripheralBlock blockWithDidConnectPeripheralBlock;
+//连接失败
+@property (nonatomic, copy) CDDidFailToConnectPeripheralBlock blockWithDidFailToConnectPeripheralBlock;
 @end

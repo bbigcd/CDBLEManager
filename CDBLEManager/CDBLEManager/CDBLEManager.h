@@ -16,6 +16,8 @@
 
 - (void)stopScan;
 
+- (void)cancelAllPeripheralsConnection;
+
 - (void)connectPeripheral:(CBPeripheral *)peripheral;
 
 #pragma mark --block--
@@ -24,5 +26,8 @@
 - (void)cd_setBlockWithDiscoverToPeripherals:(void (^)(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary*advertisementData, NSNumber *RSSI))block;
 
 - (void)cd_setBlockWithDidConnectPeripheral:(void (^)(CBCentralManager *central,CBPeripheral *peripheral))block;
+
+- (void)cd_setBlockWithDidFailConnectPeripheral:(void (^)(CBCentralManager *central, CBPeripheral *peripheral, NSError *error))block;
+
 
 @end

@@ -52,8 +52,9 @@ static NSString *const ID = @"cell";
     [self CDBLEDelegate];
     
     [self tableView];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"断开连接" style:UIBarButtonItemStylePlain target:self action:@selector(disconnectAllPeripheral)];
 }
-
 
 - (void)CDBLEDelegate{
     // 中心管理者设备的蓝牙状态
@@ -69,6 +70,10 @@ static NSString *const ID = @"cell";
     [self.CDBLEManager cd_setBlockWithDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         [weakSelf insertTableView:peripheral advertisementData:advertisementData];
     }];
+}
+
+- (void)disconnectAllPeripheral{
+    [self.CDBLEManager cancelAllPeripheralsConnection];
 }
 
 //插入table数据

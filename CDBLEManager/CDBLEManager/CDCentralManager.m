@@ -41,8 +41,8 @@
 
 // 断开所有已连接的设备
 - (void)cancelAllPeripheralsConnection{
-    for (int i = 0; i < connectedPeripherals.count; i++) {
-        [centralManager cancelPeripheralConnection:connectedPeripherals[i]];
+    for (CBPeripheral *peripheral in connectedPeripherals) {
+        [centralManager cancelPeripheralConnection:peripheral];
     }
 }
 
@@ -107,10 +107,18 @@
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
     [cdbleCallBack blockWithDidConnectPeripheralBlock](central, peripheral);
+    
+    NSLog(@"连接{%@}成功", peripheral.name);
+    
+    // 设置委托
+    [peripheral setDelegate:self];
+    
+    // 记录连接成功的外围设备
+    [self addPeripheral:peripheral];
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error{
-    
+    [cdbleCallBack blockWithDidFailToConnectPeripheralBlock](central, peripheral, error);
 }
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(nullable NSError *)error{

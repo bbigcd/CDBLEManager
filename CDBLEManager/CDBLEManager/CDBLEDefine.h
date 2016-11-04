@@ -6,6 +6,7 @@
 //  Copyright © 2016年 chendi. All rights reserved.
 //
 
+
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
@@ -16,6 +17,9 @@ typedef void (^CDCentralManagerDidUpdateStateBlock)(CBCentralManager *central);
 //扫描外围设备
 typedef void (^CDDiscoverPeripheralsBlock)(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary*advertisementData, NSNumber *RSSI);
 //成功连接设备
-typedef void (^CDCentralManagerDidConnectPeripheralBlock)(CBCentralManager *central, CBPeripheral *peripheral);
+typedef void (^CDDidConnectPeripheralBlock)(CBCentralManager *central, CBPeripheral *peripheral);
+//连接设备失败
+typedef void (^CDDidFailToConnectPeripheralBlock)(CBCentralManager *central, CBPeripheral *peripheral, NSError *error);
+
 
 @end
