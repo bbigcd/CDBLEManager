@@ -4,7 +4,7 @@
 //
 //  Created by bbigcd on 16/11/2.
 //  Copyright © 2016年 chendi. All rights reserved.
-//
+//  block属性设置
 
 #import <Foundation/Foundation.h>
 #import "CDBLEDefine.h"
@@ -20,4 +20,7 @@
 @property (nonatomic, copy) CDDidConnectPeripheralBlock blockWithDidConnectPeripheralBlock;
 //连接失败
 @property (nonatomic, copy) CDDidFailToConnectPeripheralBlock blockWithDidFailToConnectPeripheralBlock;
+
+//扫描服务
+@property (nonatomic, copy) CDDiscoverServicesBlock blockWithDiscoverServicesBlock;
 @end

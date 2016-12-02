@@ -4,7 +4,7 @@
 //
 //  Created by CDigcd on 16/10/31.
 //  Copyright © 2016年 chendi. All rights reserved.
-//
+//  BLE中心管理者
 /*
  1.扫描
  2.连接

@@ -15,5 +15,7 @@
 @property (nonatomic, strong) CBPeripheral *currenPeripheral;
 @property (nonatomic, strong) CDBLEManager *CDBLEManager;
 
+@property (nonatomic, copy) void(^BLEConnectingBlock) (BOOL connecting);
+
 @end
 

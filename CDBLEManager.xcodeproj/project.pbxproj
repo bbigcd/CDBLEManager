@@ -13,6 +13,8 @@
 		2A225DFA1DC75850001BAF46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A225DF81DC75850001BAF46 /* LaunchScreen.storyboard */; };
 		2A225E051DC75851001BAF46 /* CDBLEManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A225E041DC75851001BAF46 /* CDBLEManagerTests.m */; };
 		2A225E101DC75851001BAF46 /* CDBLEManagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A225E0F1DC75851001BAF46 /* CDBLEManagerUITests.m */; };
+		2A3501281DF15DD000FDA385 /* PeripheralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3501261DF15DD000FDA385 /* PeripheralTableViewCell.m */; };
+		2A3501291DF15DD000FDA385 /* PeripheralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A3501271DF15DD000FDA385 /* PeripheralTableViewCell.xib */; };
 		2AA0B8FD1DCB29D3006FB2C8 /* SeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0B8FA1DCB29D3006FB2C8 /* SeviceViewController.m */; };
 		2AA0B8FE1DCB29D3006FB2C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0B8FC1DCB29D3006FB2C8 /* ViewController.m */; };
 		2AA0B9071DCB2A2E006FB2C8 /* CDBLECallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0B9001DCB2A2E006FB2C8 /* CDBLECallBack.m */; };
@@ -52,6 +54,9 @@
 		2A225E0B1DC75851001BAF46 /* CDBLEManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDBLEManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A225E0F1DC75851001BAF46 /* CDBLEManagerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDBLEManagerUITests.m; sourceTree = "<group>"; };
 		2A225E111DC75851001BAF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A3501251DF15DD000FDA385 /* PeripheralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralTableViewCell.h; sourceTree = "<group>"; };
+		2A3501261DF15DD000FDA385 /* PeripheralTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralTableViewCell.m; sourceTree = "<group>"; };
+		2A3501271DF15DD000FDA385 /* PeripheralTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeripheralTableViewCell.xib; sourceTree = "<group>"; };
 		2AA0B8F91DCB29D3006FB2C8 /* SeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeviceViewController.h; sourceTree = "<group>"; };
 		2AA0B8FA1DCB29D3006FB2C8 /* SeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeviceViewController.m; sourceTree = "<group>"; };
 		2AA0B8FB1DCB29D3006FB2C8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -192,6 +197,9 @@
 		2A225E231DC75993001BAF46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2A3501251DF15DD000FDA385 /* PeripheralTableViewCell.h */,
+				2A3501261DF15DD000FDA385 /* PeripheralTableViewCell.m */,
+				2A3501271DF15DD000FDA385 /* PeripheralTableViewCell.xib */,
 			);
 			name = View;
 			path = Classes/View;
@@ -267,7 +275,7 @@
 		2A225DDF1DC75850001BAF46 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = chendi;
 				TargetAttributes = {
 					2A225DE61DC75850001BAF46 = {
@@ -309,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A3501291DF15DD000FDA385 /* PeripheralTableViewCell.xib in Resources */,
 				2A225DFA1DC75850001BAF46 /* LaunchScreen.storyboard in Resources */,
 				2A225DF71DC75850001BAF46 /* Assets.xcassets in Resources */,
 			);
@@ -335,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A3501281DF15DD000FDA385 /* PeripheralTableViewCell.m in Sources */,
 				2AA0B90A1DCB2A2E006FB2C8 /* CDCentralManager.m in Sources */,
 				2AA0B9071DCB2A2E006FB2C8 /* CDBLECallBack.m in Sources */,
 				2AA0B9091DCB2A2E006FB2C8 /* CDBLEManager.m in Sources */,
@@ -403,8 +413,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -447,8 +459,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

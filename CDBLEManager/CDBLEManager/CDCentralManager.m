@@ -125,6 +125,7 @@
     
 }
 
+
 #pragma mark --CBPeripheralDelegate--
 
 - (void)peripheralDidUpdateName:(CBPeripheral *)peripheral{
@@ -144,7 +145,7 @@
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(nullable NSError *)error{
-    
+    [cdbleCallBack blockWithDiscoverServicesBlock](peripheral, error);
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverIncludedServicesForService:(CBService *)service error:(nullable NSError *)error{

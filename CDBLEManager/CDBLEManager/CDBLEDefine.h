@@ -4,7 +4,7 @@
 //
 //  Created by bbigcd on 16/10/31.
 //  Copyright © 2016年 chendi. All rights reserved.
-//
+//  block定义
 
 
 #import <Foundation/Foundation.h>
@@ -21,5 +21,6 @@ typedef void (^CDDidConnectPeripheralBlock)(CBCentralManager *central, CBPeriphe
 //连接设备失败
 typedef void (^CDDidFailToConnectPeripheralBlock)(CBCentralManager *central, CBPeripheral *peripheral, NSError *error);
 
+typedef void (^CDDiscoverServicesBlock)(CBPeripheral *peripheral, NSError *error);
 
 @end

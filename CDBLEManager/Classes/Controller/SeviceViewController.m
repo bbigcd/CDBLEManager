@@ -48,13 +48,29 @@ static NSString *const ID = @"cell";
 }
 
 - (void)CDBLEDelegate{
-//    __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     [self.CDBLEManager cd_setBlockWithDidConnectPeripheral:^(CBCentralManager *central, CBPeripheral *peripheral){
+        weakSelf.BLEConnectingBlock(YES);
         
+        // 如果连接成功，则扫描外设，自动触发代理 cd_setBlockWithDiscoverServices
+        [peripheral discoverServices:nil];
     }];
     
     [self.CDBLEManager cd_setBlockWithDidFailConnectPeripheral:^(CBCentralManager *central, CBPeripheral *peripheral, NSError *error) {
         NSLog(@"连接{%@}失败 : %@", peripheral.name, [error localizedDescription]);
+        weakSelf.BLEConnectingBlock(NO);
+    }];
+    
+    [self.CDBLEManager cd_setBlockWithDiscoverServices:^(CBPeripheral *peripheral, NSError *error) {
+        if (error) {
+            return;
+        }
+        
+        for (CBService *service in peripheral.services) {
+            NSLog(@"service - %@", service);
+#warning add service information to the tableView cell
+        }
+        
     }];
 }
 
